@@ -1,7 +1,8 @@
 import express from "express"
 import dotenv from "dotenv"
 import contactRoutes from './routes/contactRoutes.js'
-import mongoose, { connect } from "mongoose";
+import userRoutes from './routes/userRoutes.js';
+import mongoose from "mongoose";
 
 dotenv.config();
 
@@ -10,6 +11,7 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use('/api/contacts', contactRoutes);
+app.use('/api/user', userRoutes);
 
 app.listen(port, () => {
     console.log(`server running on port ${port}`);
